@@ -36,6 +36,19 @@ public class Persona {
 	public void setNip(int nip) {
 		this.nip = nip;
 	}
+	
+	public String mostrar(int longitudLinea) {
+		int puntos = (longitudLinea-this.nombre.length()-this.apellido.length()-String.valueOf(nip).length());
+		String escribirPuntos="", devuelve;
+		
+		for (int i = 0; i < puntos; i++) {
+			escribirPuntos+=".";
+		}
+		
+		devuelve=(apellido+", "+nombre+" "+escribirPuntos+" "+nip);
+		
+		return devuelve;
+	}
 
 	@Override
 	public String toString() {
