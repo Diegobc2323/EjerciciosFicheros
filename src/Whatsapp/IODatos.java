@@ -14,7 +14,7 @@ public class IODatos {
 	
 	public static void escribirArchivo() {
 		File f = new File("Telegram.txt");
-		
+		File eliminar = new File("WhatsApp.txt");
 		
 		if (!f.exists()) {
 			try {
@@ -44,7 +44,7 @@ public class IODatos {
 			e.printStackTrace();
 		}
 		
-		
+		eliminar.delete();
 		
 	}
 	
