@@ -48,6 +48,42 @@ public class IODatos {
 		
 	}
 	
+	
+	public static File crearWhatsAppYRellenarlo() {
+		
+		String ruta = "WhatsApp.txt";
+		
+		File f = new File(ruta);
+		
+		
+		if (!f.exists()) {
+			try {
+				f.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		try (FileWriter fw = new FileWriter(f);
+			PrintWriter pw = new PrintWriter(fw)){
+						
+			pw.print("Diego:Hola que tal\n"
+					+ "Marcos:yepa\n"
+					+ "Diego:Algo interesante que haya pasado por Castelseras?\n"
+					+ "Marcos:Si la verdad, estamos quedandonos sin poblacion de gatos, ahora solo tenemos dos millones por calle");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+		
+		
+		return f;
+	}
+	
+	
+	
 	public static Mensaje[] leerArchivo() {
 		
 		String ruta = "WhatsApp.txt", lectura="", nombre="", mensaje="";
@@ -57,7 +93,7 @@ public class IODatos {
 		Mensaje vMensajes[] = new Mensaje[20];
 		
 		
-		File f = new File(ruta);
+		File f = crearWhatsAppYRellenarlo();
 		
 		
 		if (!f.exists()) {
